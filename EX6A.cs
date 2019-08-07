@@ -19,9 +19,9 @@ namespace ES6a
             return sum;
         }
         //lamda to return the sum / length, for average
-        public static int GetMean(int[] arr) => GetSum(arr) / GetLength(arr);
+        public static double GetMean(int[] arr) => GetSum(arr) / GetLength(arr);
         //reverses an array
-        public static int[] ReverseArray(int[] arr)
+        public static void ReverseArray(int[] arr)
         {
             int[] reversed = new int[GetLength(arr)];
             int index = 0;
@@ -30,10 +30,10 @@ namespace ES6a
                 reversed[index] = arr[i];
                 index++;
             }
-            return reversed;
+            ShowArray(reversed);
         }
         //rotates an array to the left or right
-        public static int[] RotateArray(string dir, int n, int[] arr)
+        public static void RotateArray(string dir, int n, int[] arr)
         {
             int[] rotated = new int[GetLength(arr)];
             int index;
@@ -75,10 +75,10 @@ namespace ES6a
                 }
             }
 
-            return rotated;
+            ShowArray(rotated);
         }
         //bubble sort (not an efficient sorting algorithm, but effective)
-        public static int[] Sort(int[] arr)
+        public static void Sort(int[] arr)
         {
             int temp = 0;
 
@@ -95,7 +95,7 @@ namespace ES6a
                 }
             }
 
-            return arr;
+            ShowArray(arr);
         }
         //prints out an array
         public static void ShowArray(int[] arr)
@@ -119,17 +119,17 @@ namespace ES6a
             Console.WriteLine("\tAvg of C: "+ GetMean(C));
 
             Console.WriteLine("Reverse the array");
-            Console.Write("\tReverse of A: "); ShowArray(ReverseArray(A)); 
-            Console.Write("\tReverse of B: "); ShowArray(ReverseArray(B));
-            Console.Write("\tReverse of C: "); ShowArray(ReverseArray(C));
+            Console.Write("\tReverse of A: "); ReverseArray(A); 
+            Console.Write("\tReverse of B: "); ReverseArray(B);
+            Console.Write("\tReverse of C: "); ReverseArray(C);
 
             Console.WriteLine("Rotating the array");
-            Console.Write("\tRotation of A: "); ShowArray(RotateArray("left", 2, A));
-            Console.Write("\tRotation of B: "); ShowArray(RotateArray("right", 2, B));
-            Console.Write("\tRotation of C: "); ShowArray(RotateArray("left", 4, C));
+            Console.Write("\tRotation of A: "); RotateArray("left", 2, A);
+            Console.Write("\tRotation of B: "); RotateArray("right", 2, B);
+            Console.Write("\tRotation of C: "); RotateArray("left", 4, C);
 
             Console.WriteLine("Sorting the array");
-            Console.Write("\tAvg of C: "); ShowArray(Sort(C));
+            Console.Write("\tAvg of C: "); Sort(C);
         }
     }
 }
